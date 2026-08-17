@@ -613,9 +613,9 @@ html,body{margin:0;padding:0;background:#0d0d0d}
   <span class="tm-pill">DRAFT v1 · EDITABLE</span>
   <span class="tm-status" id="tm-status">Loading…</span>
   <button id="tm-reset">Reset</button>
-  <button id="tm-print">Print / PDF</button>
+  <a id="tm-pdf" class="tm-btn" href="https://talexmedia.github.io/taco-drama-carousel/taco-drama-carousel.pdf" download>Download PDF</a>
   <button id="tm-export" class="tm-primary">Export Final Version</button>
-  <div class="tm-note">Edits save automatically to the cloud. When you're done, click <b>Export Final Version</b> and send the downloaded file back — that's the locked final.</div>
+  <div class="tm-note">Edits save automatically to the cloud. When you're done, click <b>Export Final Version</b> and send the downloaded file back — that's the locked final. <b>Download PDF</b> gives you the last published build — republish the page to fold in the edits above.</div>
 </div>
 
 <style id="tm-edit-css">
@@ -629,10 +629,11 @@ html,body{margin:0;padding:0;background:#0d0d0d}
 #tm-bar .tm-status.saved{color:#7BC99A}
 #tm-bar .tm-status.warn{color:#E8C060}
 #tm-bar .tm-note{width:100%;color:#8f8f8f;font-size:11px;line-height:1.5}
-#tm-bar button{background:transparent;border:1px solid #3d3d3d;color:#e6e6e6;font-family:inherit;
+#tm-bar button,#tm-bar .tm-btn{background:transparent;border:1px solid #3d3d3d;color:#e6e6e6;font-family:inherit;
   font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:4px;
   cursor:pointer;transition:background 0.15s,border-color 0.15s}
-#tm-bar button:hover{border-color:#E85A0C;color:#fff}
+#tm-bar button:hover,#tm-bar .tm-btn:hover{border-color:#E85A0C;color:#fff}
+#tm-bar .tm-btn{text-decoration:none;display:inline-block;line-height:1.35}
 #tm-bar button.tm-primary{background:#E85A0C;border-color:#E85A0C;color:#fff;font-weight:600}
 #tm-bar button.tm-primary:hover{background:#c94d08}
 @media print{#tm-bar{display:none!important}}
@@ -949,7 +950,12 @@ html,body{margin:0;padding:0;background:#0d0d0d}
     location.reload();
   });
 
-  document.getElementById('tm-print').addEventListener('click', function(){ window.print(); });
+  // No window.print() button. Browser printing renders the page as seen —
+  // Chrome defaults "Background graphics" OFF, which turns a charcoal deck
+  // into white slides — and it prints the screen-preview zoom rather than
+  // the slide box. The real PDF comes from tools/carousel-pdf.mjs, which
+  // drives headless Chrome with printBackground + preferCSSPageSize. The
+  // Download PDF button below serves that build.
 
   function exportFinal(){
     var clone = document.documentElement.cloneNode(true);
