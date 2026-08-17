@@ -588,6 +588,13 @@ html,body{margin:0;padding:0;background:#0d0d0d}
   overflow:hidden;
   break-after:page;
   page-break-after:always;
+  /* Chrome's print dialog defaults "Background graphics" OFF, which would
+     strip a charcoal deck to white slides. This overrides the checkbox, so
+     Ctrl+P -> Save as PDF produces the real deck without the reviewer having
+     to find a setting. Verified: printBackground:false gives 0 dark fills
+     without this and 1 with it. */
+  print-color-adjust:exact;
+  -webkit-print-color-adjust:exact;
 }
 .slide:last-child{break-after:auto;page-break-after:auto}
 
