@@ -612,6 +612,78 @@ html,body{margin:0;padding:0;background:#0d0d0d}
   #wrap{zoom:1;display:block;gap:0;padding:0}
   .slide{box-shadow:none;margin:0}
 }
+
+/* Artwork v2: full-bleed painted backgrounds behind the original deck copy.
+   The dark wash is intentionally heavy enough for the editorial hierarchy to
+   remain readable in a LinkedIn export. */
+.slide[data-slide="1"], .slide[data-slide="4"], .slide[data-slide="5"],
+.slide[data-slide="7"], .slide[data-slide="8"]{position:relative;isolation:isolate}
+.slide[data-slide="1"]{background-image:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.67) 54%,rgba(10,10,10,.37) 100%),url("assets/artwork-v2/slide-01-oil-painting.png")!important;background-size:cover!important;background-position:center!important}
+.slide[data-slide="4"]{background-image:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.72) 57%,rgba(10,10,10,.36) 100%),url("assets/artwork-v2/slide-04-grocery-screens.png")!important;background-size:cover!important;background-position:center!important}
+.slide[data-slide="5"]{background-image:linear-gradient(90deg,rgba(248,248,248,.96) 0%,rgba(248,248,248,.88) 54%,rgba(248,248,248,.46) 100%),url("assets/artwork-v2/slide-05-story-room.png")!important;background-size:cover!important;background-position:center!important}
+.slide[data-slide="7"]{background-image:linear-gradient(90deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.71) 59%,rgba(10,10,10,.34) 100%),url("assets/artwork-v2/slide-07-audience.png")!important;background-size:cover!important;background-position:center!important}
+.slide[data-slide="8"]{background-image:linear-gradient(90deg,rgba(10,10,10,.93) 0%,rgba(10,10,10,.69) 55%,rgba(10,10,10,.31) 100%),url("assets/artwork-v2/slide-01-oil-painting.png")!important;background-size:cover!important;background-position:72% center!important}
+.slide[data-slide="1"] > *, .slide[data-slide="4"] > *, .slide[data-slide="5"] > *, .slide[data-slide="7"] > *, .slide[data-slide="8"] > *{position:relative;z-index:1}
+
+/* This carousel uses image texture instead of the design system's rule motif. */
+.slide div[style*="width:64px"][style*="height:3px"]{display:none!important}
+.slide [style*="border-top:1px"],
+.slide [style*="border-bottom:1px"]{border-top:none!important;border-bottom:none!important}
+
+/* Editorial layouts: avoid the repeated card/rail pattern common to AI decks. */
+.slide[data-slide="2"] > div:nth-child(2){display:grid!important;grid-template-columns:1fr 1fr;gap:72px 64px!important;align-items:start}
+.slide[data-slide="2"] > div:nth-child(2) > div{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:18px!important}
+.slide[data-slide="2"] > div:nth-child(2) > div > span:first-child{font-size:112px!important;line-height:.82!important;letter-spacing:-.055em!important;flex:0 0 auto!important}
+.slide[data-slide="2"] > div:nth-child(2) > div > span:last-child{font-size:30px!important;line-height:1.42!important}
+.slide[data-slide="2"] > div:nth-child(2) > div:nth-child(3){grid-column:1 / -1;display:grid!important;grid-template-columns:230px 1fr!important;gap:48px!important;align-items:start!important;padding-top:8px!important}
+.slide[data-slide="2"] > div:nth-child(2) > div:nth-child(3) > span:first-child{font-size:24px!important;line-height:1.4!important;letter-spacing:.22em!important;padding-top:6px}
+.slide[data-slide="2"] > div:nth-child(2) > div:nth-child(3) > span:last-child{font-family:Georgia,serif;font-size:40px!important;line-height:1.28!important}
+
+.slide[data-slide="3"] > div:nth-child(2){display:grid!important;grid-template-columns:1fr 1fr;gap:76px!important;align-items:start}
+.slide[data-slide="3"] > div:nth-child(2) > div{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;gap:20px!important}
+.slide[data-slide="3"] > div:nth-child(2) > div:nth-child(2){margin-top:148px}
+.slide[data-slide="3"] > div:nth-child(2) > div > span:first-child{font-size:24px!important;letter-spacing:.22em!important}
+.slide[data-slide="3"] > div:nth-child(2) > div > span:last-child{font-family:Georgia,serif;font-size:43px!important;line-height:1.25!important}
+.slide[data-slide="3"] > p:last-child{max-width:760px;padding-top:0!important;font-size:34px!important}
+
+.slide[data-slide="5"] > div:nth-child(2){display:grid!important;grid-template-columns:repeat(3,1fr);gap:52px!important;align-items:start}
+.slide[data-slide="5"] > div:nth-child(2) > div{display:flex!important;flex-direction:column!important;gap:24px!important;padding-top:0!important}
+.slide[data-slide="5"] > div:nth-child(2) > div > span:first-child{font-size:94px!important;line-height:.82!important;letter-spacing:-.055em!important;flex:0 0 auto!important}
+.slide[data-slide="5"] > div:nth-child(2) > div > span:last-child{font-size:29px!important;line-height:1.38!important}
+.slide[data-slide="5"] > div:last-child{border:0!important;padding-top:0!important}
+
+.slide[data-slide="6"] > div:nth-child(2){display:grid!important;grid-template-columns:1fr 1fr;gap:76px 82px!important;align-items:start}
+.slide[data-slide="6"] > div:nth-child(2) > div{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:18px!important}
+.slide[data-slide="6"] > div:nth-child(2) > div > span:first-child{font-size:23px!important;line-height:1.3!important;letter-spacing:.22em!important;flex:0 0 auto!important}
+.slide[data-slide="6"] > div:nth-child(2) > div > span:last-child{font-family:Georgia,serif;font-size:39px!important;line-height:1.25!important}
+.slide[data-slide="6"] > div:last-child{border:0!important;padding-top:0!important}
+
+/* A single editorial field gives the open layouts a visible composition system. */
+.slide[data-slide="2"] > div:nth-child(2),
+.slide[data-slide="3"] > div:nth-child(2){
+  box-sizing:border-box;
+  padding:34px!important;
+  margin:-34px!important;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.035);
+}
+.slide[data-slide="5"] > div:nth-child(2),
+.slide[data-slide="6"] > div:nth-child(2){
+  box-sizing:border-box;
+  padding:34px!important;
+  margin:-34px!important;
+  background:rgba(255,255,255,.70);
+  border:1px solid rgba(22,22,22,.11);
+  box-shadow:0 24px 64px rgba(38,30,22,.12), inset 0 1px 0 rgba(255,255,255,.75);
+  backdrop-filter:blur(2px);
+}
+.slide[data-slide="3"] > div:nth-child(2) > div:nth-child(2),
+.slide[data-slide="5"] > div:nth-child(2) > div:nth-child(n+2),
+.slide[data-slide="6"] > div:nth-child(2) > div:nth-child(even){
+  border-left:1px solid rgba(128,128,128,.24)!important;
+  padding-left:38px!important;
+}
 </style>
 </head>
 <body>
@@ -619,7 +691,6 @@ html,body{margin:0;padding:0;background:#0d0d0d}
 
 <section class="slide" data-slide="1" data-label="01 Hook" data-screen-label="01" style="background:#161616; color:#E4E4E4; font-family:Helvetica Neue, Helvetica, Arial, sans-serif; display:flex; flex-direction:column; justify-content:space-between; padding:88px 80px 72px; box-sizing:border-box;">
     <div style="display:flex; flex-direction:column; gap:44px;">
-      <div style="width:64px; height:3px; background:#E8561C;"></div>
       <h1 style="margin:0; font-size:88px; line-height:1.0; font-weight:800; letter-spacing:-0.03em;">
         <span style="display:block; white-space:nowrap; color:#E4E4E4;">WELCOME TO THE</span>
         <span style="display:block; white-space:nowrap; color:#F37121;">TACO DRAMA</span>
@@ -627,7 +698,7 @@ html,body{margin:0;padding:0;background:#0d0d0d}
     </div>
     <div style="display:flex; flex-direction:column; gap:56px;">
       <p style="margin:0; font-family:Georgia, serif; font-style:italic; font-size:48px; line-height:1.35; color:#B8B8B8; max-width:840px;">Procter &amp; Gamble is making television again.</p>
-      <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #333; padding-top:32px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; padding-top:32px;">
         <span style="font-size:24px; font-weight:700; letter-spacing:0.22em; color:#F37121;">TALEX MEDIA</span>
         <span style="font-size:24px; font-weight:700; letter-spacing:0.22em; color:#8A8A8A;">SWIPE →</span>
       </div>
@@ -638,7 +709,6 @@ html,body{margin:0;padding:0;background:#0d0d0d}
     <div style="display:flex; flex-direction:column; gap:32px;">
       <div style="display:flex; flex-direction:column; gap:20px;">
         <span style="font-size:26px; font-weight:700; letter-spacing:0.22em; color:#F37121;">NEARLY 100 YEARS AGO</span>
-        <div style="width:64px; height:3px; background:#E8561C;"></div>
       </div>
       <h2 style="margin:0; font-family:Georgia, serif; font-size:62px; line-height:1.15; font-weight:400; color:#E4E4E4; max-width:900px;">P&amp;G invented the soap opera as a branded content play.</h2>
     </div>
@@ -683,7 +753,6 @@ html,body{margin:0;padding:0;background:#0d0d0d}
     <div style="display:flex; flex-direction:column; gap:32px;">
       <div style="display:flex; flex-direction:column; gap:20px;">
         <span style="font-size:26px; font-weight:700; letter-spacing:0.22em; color:#F37121;">WHY NOW</span>
-        <div style="width:64px; height:3px; background:#E8561C;"></div>
       </div>
       <p style="margin:0; font-family:Georgia, serif; font-style:italic; font-size:44px; line-height:1.32; color:#E4E4E4; max-width:900px;">P&amp;G is doing it again with Rico's Tacos, a family building a taco stand outside an Albertsons, two minutes at a time.</p>
     </div>
@@ -692,7 +761,7 @@ html,body{margin:0;padding:0;background:#0d0d0d}
         <span style="font-size:172px; font-weight:800; letter-spacing:-0.04em; line-height:0.9; color:#F37121;">$14B</span>
         <span style="font-size:30px; line-height:1.32; color:#B8B8B8; max-width:420px;">Where Omdia expects vertical short drama to land by the end of 2026, up from $11B in 2025.</span>
       </div>
-      <div style="flex:1; display:flex; align-items:flex-end; gap:14px; height:270px; border-bottom:1px solid #333;">
+      <div style="flex:1; display:flex; align-items:flex-end; gap:14px; height:270px;">
         <div style="flex:1; height:14%; background:#2A2A2A;"></div>
         <div style="flex:1; height:24%; background:#2A2A2A;"></div>
         <div style="flex:1; height:36%; background:#333333;"></div>
@@ -701,7 +770,7 @@ html,body{margin:0;padding:0;background:#0d0d0d}
         <div style="flex:1; height:100%; background:#F37121;"></div>
       </div>
     </div>
-    <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #333; padding-top:32px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding-top:32px;">
       <span style="font-size:24px; font-weight:700; letter-spacing:0.1em; white-space:nowrap; color:#8A8A8A;">OMDIA, GLOBAL VERTICAL SHORT-DRAMA REVENUE</span>
       <span style="font-size:24px; font-weight:700; letter-spacing:0.22em; white-space:nowrap; color:#8A8A8A;">04 / 08</span>
     </div>
